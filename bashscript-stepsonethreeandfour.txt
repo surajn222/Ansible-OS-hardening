@@ -1,0 +1,12 @@
+sudo yum install epel-release -y
+sudo yum install ansible -y
+yum install ansible
+cd /etc/ansible
+touch playbook.yml
+echo -e "- hosts: servers\n  roles:\n     - ansible-hardening">>playbook.yml
+cd roles
+wget https://github.com/openstack/ansible-hardening/archive/master.zip
+yum install unzip -y
+unzip master.zip
+mv ansible-hardening-master ansible-hardening
+cd ..
